@@ -1,0 +1,2 @@
+2019-10-13 23:49:22 ERROR tp1ex1:17 - exception Message!
+2019-10-13 23:49:22 ERROR tp1ex1:22 - exception Message!java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 2

@@ -1,0 +1,49 @@
+package cryptographie;
+
+import javax.crypto.spec.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.security.*;
+import java.util.Scanner;
+
+import javax.crypto.*;
+  
+public class Main
+{
+   
+   public static void main(String []args) throws Exception {
+      String toEncrypt = "The shorter you live, the longer you're dead!";
+      try {
+    	  AES aes = new AES();
+    	  RC4 rc4 = new RC4();
+          File myObj = new File("/home/iheb/eclipse-workspace/cryptographie/src/cryptographie/filename.txt");
+          Scanner myReader = new Scanner(myObj);
+          while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            System.out.println("Encrypting...");
+            byte[] encrypted = rc4.encrypt(toEncrypt, "password");
+            System.out.println(encrypted);
+            File file = new File("/home/iheb/eclipse-workspace/cryptographie/src/cryptographie/testFile1.txt");
+            file.createNewFile();
+            FileWriter writer = new FileWriter(file);
+            writer.write(new String(encrypted));
+            writer.close();
+            //Files.write(Paths.get("name.txt"), encrypted);
+            System.out.println("Decrypting...");
+            byte[] decrypted = rc4.decrypt(encrypted, "password");
+            System.out.println(new String( decrypted));
+          }
+          myReader.close();
+        } catch (FileNotFoundException e) {
+          System.out.println("An error occurred.");
+          e.printStackTrace();
+        }
+   }
+  
+}
+

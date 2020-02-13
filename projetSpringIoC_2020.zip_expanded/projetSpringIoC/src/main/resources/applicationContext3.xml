@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ 	http://www.springframework.org/schema/context
+ 	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+
+	<!-- exemple d'injection par modificateur (setter) -->
+	<bean id="e1" class="fr.esigelec.projetSpring.Enseignant">
+		<property name="prenom" value="Sebastien"></property>
+		<property name="nom" value="Serais"></property>
+
+		<property name="listeEleves">
+			<list>
+				<value>Alexandre</value>
+				<value>Olamidé</value>
+				<value>Antoine</value>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="e2" class="fr.esigelec.projetSpring.Enseignant">
+		<property name="prenom" value="Adnane"></property>
+		<property name="nom" value="Cabani"></property>
+
+
+		<property name="listeEleves">
+			<list>
+
+				<value>Loui</value>
+				<value>Abdoul</value>
+				<value>Denis</value>
+				<value>Thomas</value>
+
+			</list>
+		</property>
+	</bean>
+
+	<bean id="esigelec" class="fr.esigelec.projetSpring.Ecole3" />
+
+</beans>
